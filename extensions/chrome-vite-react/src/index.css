@@ -1,0 +1,374 @@
+:root {
+  --font-size: 12px;
+  --title-font-size: 20px;
+  --background-color: var(--c-bg-box);
+  --color: var(--c-font);
+  --success: var(--c-secondary-dim);
+  --success-dark: var(--c-secondary-dimmer);
+  --error: #ab615e;
+  --error-dark: var(--m-bad_bg--mix-25);
+  --tab-background-color: var(--c-bg-page);
+  --tab-active-background-color: var(--c-bg-box);
+  --tab-hover-background-color: var(--m-accent_bg--mix-15);
+  --tab-border-color: var(--c-border);
+  --placeholder-color: var(--c-bg-page);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+
+canvas {
+  width: 100%;
+}
+
+.ca_placeholder {
+}
+
+.ca_placeholder.ca_placeholder_enabled {
+  color: transparent !important;
+  background-color: var(--placeholder-color) !important;
+  animation:
+    fadeIn linear 0.5s,
+    flickerAnimation linear 1s infinite 0.5s;
+  pointer-events: none;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ca_container_root {
+  font-size: var(--font-size);
+  font-family: sans-serif;
+  color: var(--color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(---block-gap);
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ca_opponent_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5px 0 !important;
+}
+
+.ca_opponent_info_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2px;
+  margin-left: 10px;
+}
+
+.ca_container {
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.ca_auth_container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  padding: 20px;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.ca_auth_content_container {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--tab-border-color);
+}
+
+.ca_section {
+  margin: 10px 0;
+}
+
+.ca_title {
+  font-size: var(--title-font-size);
+  font-weight: bold;
+}
+
+.ca_opponent_colour {
+  height: 12px;
+  width: 12px;
+  vertical-align: middle;
+  border: 2px solid;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ca_white {
+  background-color: var(--color);
+  border-color: var(--color);
+}
+
+.ca_black {
+  background-color: var(--background-color);
+  border-color: var(--color);
+}
+
+.ca_opponent_name {
+  font-size: var(--title-font-size);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ca_game_type {
+}
+
+.ca_win_streak_value {
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.ca_win_streak_value.ca_negative {
+  background-color: var(--error-dark);
+}
+
+.ca_win_streak_value.ca_positive {
+  background-color: var(--success-dark);
+}
+
+.ca_game_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+  margin-bottom: 10px;
+}
+
+.ca_puzzle_rating {
+}
+
+.ca_tabs {
+  margin-top: 10px;
+  border-bottom: 1px solid var(--tab-background-color);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ca_tabs.left_align {
+  justify-content: flex-start;
+}
+
+.ca_tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tab-background-color);
+  padding: 4px 8px;
+  text-align: center;
+  margin: 0 1px;
+  width: 80px;
+  border: 1px solid var(--tab-background-color);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.ca_tab:hover {
+  cursor: pointer;
+  background-color: var(--tab-hover-background-color);
+}
+
+.ca_tab.ca_active:hover {
+  cursor: default;
+}
+
+.ca_tab:active,
+.ca_tab.ca_active {
+  background-color: var(--tab-active-background-color);
+}
+
+.ca_tabs.fill_width .ca_tab {
+  flex-grow: 1;
+}
+
+.ca_tab.ca_tab_icon {
+  width: 50px;
+}
+
+.ca_tab_section {
+  width: 100%;
+  height: 100%;
+}
+
+.ca_hidden {
+  display: none !important;
+}
+
+.ca_elo_range {
+  margin-right: 20px;
+  position: relative;
+  height: 1px;
+  width: 100px;
+  background-color: var(--tab-border-color);
+  font-size: 10px;
+}
+
+.ca_elo_range .ca_elo_range_lowest,
+.ca_elo_range .ca_elo_range_current,
+.ca_elo_range .ca_elo_range_highest {
+  position: absolute;
+  height: 6px;
+  width: 2px;
+  background-color: var(--color);
+  border-radius: 6px;
+}
+
+.ca_elo_range .ca_elo_range_lowest {
+  left: 0;
+}
+
+.ca_elo_range .ca_elo_range_lowest {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.ca_elo_range .ca_elo_range_highest {
+  transform: translateX(50%) translateY(-50%);
+}
+
+.ca_elo_range .ca_elo_range_lowest_value,
+.ca_elo_range .ca_elo_range_current_value,
+.ca_elo_range .ca_elo_range_highest_value {
+  position: absolute;
+  top: 15px;
+  transform: translateX(-50%);
+}
+
+.ca_elo_range .ca_elo_range_current {
+  height: 12px;
+  left: 50%;
+  width: 3px;
+  transition: left 1s ease;
+  transform: translateY(-50%);
+}
+
+.ca_elo_range .ca_elo_range_current_value {
+  top: -15px;
+  left: 50%;
+}
+
+.ca_elo_range .ca_elo_range_highest {
+  right: 0;
+}
+
+.ca_button {
+  border: none;
+  color: white;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ca_button.ca_button_large {
+  padding: 6px 10px;
+}
+
+.ca_button:hover {
+}
+
+.ca_btn-win {
+  background-color: var(--success);
+}
+
+.ca_btn-win:hover {
+  background-color: var(--success-dark);
+}
+
+.ca_btn-win[disabled] {
+  background-color: var(--success-dark);
+  pointer-events: none;
+}
+
+.ca_btn-lose {
+  background-color: var(--error);
+}
+
+.ca_button.selected {
+  border: 2px solid var(--color);
+}
+
+.ca_textarea {
+  width: 100%;
+  height: 165px;
+  padding: 4px;
+}
+
+.ca_stats,
+.ca_openings,
+.ca_notes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ca_save_opponent_notes_form {
+  width: 100%;
+}
+
+.ca_notes_tab_trigger > svg {
+  height: var(--font-size);
+}
+
+.ca_error {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background-color: var(--error);
+  margin-bottom: 20px;
+  color: white;
+}
+
+.ca_green_colour {
+  color: var(--success);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
